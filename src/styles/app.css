@@ -2617,10 +2617,6 @@ html.site-menu-locked body {
   }
 }
 
-.client-slider-mobile {
-  display: none;
-}
-
 @media (max-width: 700px) {
   .client-slider {
     padding: 76px 0 88px;
@@ -2666,44 +2662,48 @@ html.site-menu-locked body {
   }
 
   .client-slider-desktop {
-    display: none;
-  }
-
-  .client-slider-mobile {
-    position: relative;
-    z-index: 4;
     display: flex;
-    gap: 9px;
-    overflow-x: auto;
-    padding: 4px 16px 18px;
-    scroll-padding-inline: 16px;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-inline: contain;
-    scrollbar-width: none;
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 700ms 160ms cubic-bezier(.16, 1, .3, 1), transform 700ms 160ms cubic-bezier(.16, 1, .3, 1);
+    gap: 8px;
   }
 
-  .client-slider-mobile::-webkit-scrollbar {
-    display: none;
+  .client-slider-viewport {
+    margin-block: -14px;
+    padding-block: 14px;
   }
 
-  .client-slider.is-visible .client-slider-mobile {
-    opacity: 1;
-    transform: translateY(0);
+  .client-slider-track {
+    animation-duration: 58s;
   }
 
-  .client-slider-mobile .client-slider-plaque,
-  .client-slider-mobile .client-slider-plaque.is-wide {
-    flex-basis: min(78vw, 310px);
-    min-height: 124px;
-    scroll-snap-align: start;
+  .client-slider-track.is-reverse {
+    animation-duration: 64s;
   }
 
-  .client-slider-mobile::after {
-    content: '';
-    flex: 0 0 7px;
+  .client-slider-set {
+    gap: 8px;
+    padding-right: 8px;
+  }
+
+  .client-slider-plaque {
+    flex-basis: min(64vw, 250px);
+    min-height: 104px;
+    padding: 17px 19px;
+  }
+
+  .client-slider-plaque.is-wide {
+    flex-basis: min(71vw, 278px);
+  }
+
+  .client-slider-plaque h3 {
+    max-width: 20ch;
+    font-size: clamp(21px, 6.2vw, 24px);
+  }
+
+  .client-slider-icon {
+    top: 17px;
+    right: 17px;
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -4237,9 +4237,16 @@ html.site-menu-locked body {
   .client-slider-track {
     animation: none !important;
   }
+  .client-slider-viewport {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+  .client-slider-viewport::-webkit-scrollbar {
+    display: none;
+  }
   .client-slider-header,
-  .client-slider-desktop,
-  .client-slider-mobile {
+  .client-slider-desktop {
     opacity: 1 !important;
     transform: none !important;
   }

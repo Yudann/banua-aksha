@@ -81,12 +81,6 @@ export default function Clients() {
         <MarqueeRow items={first} />
         <MarqueeRow items={second} reverse />
       </div>
-
-      <div className="client-slider-mobile" aria-label="Geser untuk melihat daftar perusahaan klien">
-        {clients.map((name) => (
-          <ClientPlaque key={name} name={name} />
-        ))}
-      </div>
     </section>
   )
 }
