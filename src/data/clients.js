@@ -15,11 +15,11 @@ export const clients = [
 ]
 
 export const clientMosaicImages = [
-  '/assets/hero-bg.png',
-  '/assets/commitment-06-komitmen-kualitas.png',
-  '/assets/commitment-04-tim-ahli.png',
-  '/assets/commitment-02-layanan-responsif.png',
-  '/assets/commitment-01-tepat-waktu.png',
-  '/assets/commitment-03-sesuai-ketentuan.png',
-  '/assets/commitment-05-harga-kompetitif.png',
+  '/assets/hero-bg.webp',
+  '/assets/commitment-06-komitmen-kualitas.webp',
+  '/assets/commitment-04-tim-ahli.webp',
+  '/assets/commitment-02-layanan-responsif.webp',
+  '/assets/commitment-01-tepat-waktu.webp',
+  '/assets/commitment-03-sesuai-ketentuan.webp',
+  '/assets/commitment-05-harga-kompetitif.webp',
 ]

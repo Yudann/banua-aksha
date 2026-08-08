@@ -18,7 +18,7 @@ export default function Vision() {
           </div>
 
           <figure className={`vision-photo-mask pointer-events-none absolute right-[-5vw] top-[-1%] h-[102%] min-h-[550px] w-[min(46vw,800px)] transition-all duration-[920ms] ease-editorial max-[1120px]:right-[-7vw] max-[1120px]:top-0 max-[1120px]:h-full max-[1120px]:min-h-[500px] max-[1120px]:w-[min(52vw,680px)] max-[920px]:relative max-[920px]:right-auto max-[920px]:top-auto max-[920px]:mt-[34px] max-[920px]:aspect-[4/3.2] max-[920px]:h-auto max-[920px]:min-h-0 max-[920px]:w-[min(100%,720px)] max-[920px]:ml-auto max-[620px]:mt-7 max-[620px]:aspect-[4/4.2] ${visible ? 'translate-y-0 opacity-100' : 'translate-y-[30px] opacity-0'}`} style={{ transitionDelay: '80ms' }} aria-hidden="true">
-            <img src="/assets/about-vision.png" alt="" loading="lazy" className="relative z-[1] h-full w-full object-cover object-[52%_center] opacity-[.86] [filter:saturate(.78)_brightness(1.09)_contrast(.90)] max-[1120px]:opacity-100 max-[1120px]:[filter:saturate(.84)_brightness(1.06)_contrast(.92)]" />
+            <img src="/assets/about-vision.webp" alt="" loading="lazy" className="relative z-[1] h-full w-full object-cover object-[52%_center] opacity-[.86] [filter:saturate(.78)_brightness(1.09)_contrast(.90)] max-[1120px]:opacity-100 max-[1120px]:[filter:saturate(.84)_brightness(1.06)_contrast(.92)]" />
             <div className="vision-photo-overlay absolute inset-0 z-[2]" />
           </figure>
         </div>
