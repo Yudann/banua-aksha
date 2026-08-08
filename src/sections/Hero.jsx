@@ -1,15 +1,14 @@
-import Navbar from '../components/Navbar'
-
-export default function Hero() {
+export default function Hero({ journey = false, mediaRef, contentRef }) {
   return (
-    <section className="relative z-[1] isolate min-h-[max(720px,100svh)] overflow-hidden bg-[#b9b39f] max-[900px]:min-h-[max(700px,100svh)] max-[640px]:min-h-[max(720px,100svh)]" aria-labelledby="hero-title">
-      <div className="hero-background absolute inset-0 -z-30 bg-[url('/assets/hero-bg.png')] bg-cover bg-center max-[640px]:bg-[position:56%_center]" aria-hidden="true" />
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_bottom,rgba(8,18,10,0.02)_0%,rgba(8,18,10,0.01)_40%,rgba(8,18,10,0.09)_63%,rgba(8,18,10,0.45)_100%)] max-[640px]:bg-[linear-gradient(to_bottom,rgba(8,18,10,0.06)_0%,rgba(8,18,10,0.02)_34%,rgba(8,18,10,0.15)_59%,rgba(8,18,10,0.58)_100%)]" aria-hidden="true" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_40%,rgba(12,17,11,0)_32%,rgba(12,17,11,0.07)_70%,rgba(8,12,8,0.25)_100%)]" aria-hidden="true" />
+    <section id="beranda" className={`${journey ? 'hero-journey-panel' : ''} relative z-[1] isolate min-h-[max(720px,100svh)] overflow-hidden bg-[#b9b39f] max-[900px]:min-h-[max(700px,100svh)] max-[640px]:min-h-[max(720px,100svh)]`} aria-labelledby="hero-title">
+      <div ref={mediaRef} className="hero-journey-media absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <div className="hero-background absolute inset-0 bg-[url('/assets/hero-bg.webp')] bg-cover bg-center max-[640px]:bg-[position:56%_center]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,18,10,0.02)_0%,rgba(8,18,10,0.01)_40%,rgba(8,18,10,0.09)_63%,rgba(8,18,10,0.45)_100%)] max-[640px]:bg-[linear-gradient(to_bottom,rgba(8,18,10,0.06)_0%,rgba(8,18,10,0.02)_34%,rgba(8,18,10,0.15)_59%,rgba(8,18,10,0.58)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(12,17,11,0)_32%,rgba(12,17,11,0.07)_70%,rgba(8,12,8,0.25)_100%)]" />
+      </div>
 
-      <Navbar />
-
-      <div className="absolute left-1/2 top-[clamp(160px,17vh,210px)] w-[calc(100%_-_48px)] max-w-[960px] -translate-x-1/2 text-center max-[900px]:top-[clamp(160px,19vh,205px)] max-[900px]:w-[calc(100%_-_44px)] max-[900px]:max-w-[760px] max-[640px]:top-[140px] max-[640px]:w-[calc(100%_-_34px)] max-[410px]:top-[126px]">
+      <div ref={contentRef} className="hero-journey-content absolute inset-0 z-10">
+        <div className="hero-primary-content absolute left-1/2 w-[calc(100%_-_48px)] max-w-[960px] text-center max-[900px]:w-[calc(100%_-_44px)] max-[900px]:max-w-[760px] max-[640px]:w-[calc(100%_-_34px)]">
         <h1 id="hero-title" className="m-0 font-display text-[clamp(54px,5.4vw,82px)] font-medium leading-[.94] tracking-[-.045em] max-[900px]:text-[clamp(50px,8vw,66px)] max-[640px]:text-[clamp(43px,13.2vw,56px)] max-[640px]:leading-[.91] max-[640px]:tracking-[-.05em] max-[410px]:text-[42px]">
           <span className="title-mask block overflow-hidden py-[.08em] -my-[.08em]">
             <span className="hero-title-line hero-title-line-one block text-ink">Bisnis terus bertumbuh.</span>
@@ -36,9 +35,9 @@ export default function Hero() {
             <span className="absolute inset-x-0 bottom-1 h-px origin-left scale-x-[.42] bg-[#181b16]/50 transition-transform duration-300 group-hover:scale-x-100" />
           </a>
         </div>
-      </div>
+        </div>
 
-<div className="hero-enter hero-enter-footer absolute inset-x-0 bottom-[clamp(26px,4vh,42px)] z-[5] flex w-full flex-col items-center justify-center gap-[9px] px-5 text-center max-[640px]:bottom-5 max-[640px]:gap-[7px] max-[410px]:bottom-4">
+        <div className="hero-enter hero-enter-footer absolute inset-x-0 bottom-[clamp(26px,4vh,42px)] z-[5] flex w-full flex-col items-center justify-center gap-[9px] px-5 text-center max-[640px]:bottom-5 max-[640px]:gap-[7px] max-[410px]:bottom-4">
   
   <p className="m-0 text-center text-[9px] font-semibold leading-none tracking-[.2em] text-white/85 max-[640px]:text-[8px]">
     ENVIRONMENTAL CONSULTING
@@ -65,7 +64,8 @@ export default function Hero() {
       </span>
     ))}
   </nav>
-</div>
+        </div>
+      </div>
 
     </section>
   )

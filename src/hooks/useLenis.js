@@ -53,10 +53,17 @@ export function useLenis() {
       if (target) lenis.scrollTo(target, { duration: 1.15, offset: 0 })
     }
 
+    const onMenuLock = (event) => {
+      if (event.detail?.locked) lenis.stop()
+      else lenis.start()
+    }
+
     document.addEventListener('click', onClick)
+    window.addEventListener('site-menu-lock', onMenuLock)
 
     return () => {
       document.removeEventListener('click', onClick)
+      window.removeEventListener('site-menu-lock', onMenuLock)
       window.cancelAnimationFrame(frame)
       lenis.destroy()
     }

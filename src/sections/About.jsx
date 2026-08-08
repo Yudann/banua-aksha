@@ -1,136 +1,137 @@
 import { useRef } from 'react'
 import { useAboutParallax } from '../hooks/useAboutParallax'
-import { useInView } from '../hooks/useInView'
 
-const cards = [
-  {
+const cards = {
+  vision: {
     key: 'vision',
     label: 'VISI',
-    copy: 'Menjadi konsultan lingkungan hidup terpercaya dengan pengawasan dan solusi inovatif demi keberlanjutan bumi.',
-    image: '/assets/about-vision.png',
-    alt: 'Tim konsultan lingkungan melakukan survei lapangan di area sungai dan hutan',
+    copy: 'Menjadi konsultan lingkungan terpercaya yang memberikan solusi inovatif untuk pembangunan berkelanjutan.',
+    image: '/assets/about-vision.webp',
+    alt: 'Tim konsultan lingkungan meninjau kondisi lapangan di area hutan',
     strength: 0.55,
-    layout: 'col-[1/4] row-[1/5] max-[1050px]:col-[1/3] max-[1050px]:row-[1/5]',
-    initial: '-translate-x-[46px] -translate-y-6 scale-[.975]',
     object: 'object-[50%_38%]',
-    delay: 170,
-    contentDelay: 680,
+    motionIndex: 0,
   },
-  {
+  mission: {
     key: 'mission',
     label: 'MISI',
-    copy: 'Memberikan layanan profesional berbasis kajian ilmiah, mendorong inovasi berkelanjutan, dan mendukung industri ramah lingkungan.',
-    image: '/assets/about-mission.png',
+    copy: 'Memberikan layanan konsultasi lingkungan yang profesional, berkualitas, dan tepat waktu.',
+    image: '/assets/about-mission.webp',
     alt: 'Pengambilan sampel air sebagai bagian dari pemantauan kualitas lingkungan',
     strength: 0.8,
-    layout: 'col-[1/4] row-[5/9] ml-[19%] max-[1050px]:col-[1/3] max-[1050px]:row-[5/9] max-[1050px]:ml-0',
-    initial: '-translate-x-[46px] translate-y-[34px] scale-[.975]',
     object: 'object-[50%_46%]',
-    delay: 330,
-    contentDelay: 840,
+    motionIndex: 1,
   },
-  {
-    key: 'about',
-    label: 'ABOUT',
-    image: '/assets/hero-bg.png',
-    alt: 'Bentang alam hijau dengan sungai dan kawasan industri yang berdampingan',
-    strength: 0.35,
-    layout: 'col-[4/8] row-[2/10] max-[1050px]:col-[3/7] max-[1050px]:row-[1/8]',
-    initial: 'translate-y-12 scale-[.94]',
-    object: 'object-center',
-    delay: 40,
-    contentDelay: 620,
-    featured: true,
-  },
-  {
+  values: {
     key: 'values',
     label: 'NILAI KAMI',
-    copy: 'Profesionalisme, inovasi, keberlanjutan, integritas, dan kualitas menjadi dasar setiap pekerjaan kami.',
-    image: '/assets/about-values.png',
+    copy: 'Integritas, profesionalisme, inovasi, kolaborasi, dan kepedulian lingkungan.',
+    image: '/assets/about-values.webp',
     alt: 'Tim konsultan berdiskusi dan meninjau dokumen serta data lingkungan',
     strength: 0.65,
-    layout: 'col-[8/11] row-[2/5] mr-[9%] max-[1050px]:col-[7/9] max-[1050px]:row-[2/6] max-[1050px]:mr-0',
-    initial: 'translate-x-[46px] -translate-y-[26px] scale-[.975]',
     object: 'object-[50%_48%]',
-    delay: 250,
-    contentDelay: 760,
+    motionIndex: 2,
   },
-  {
+  commitment: {
     key: 'commitment',
     label: 'KOMITMEN KAMI',
-    copy: 'Mendampingi kebutuhan klien dengan layanan tepat waktu, responsif, legal, dan ditangani tim ahli profesional.',
-    image: '/assets/about-commitment.png',
+    copy: 'Mendampingi setiap langkah bisnis untuk tumbuh bersama lingkungan.',
+    image: '/assets/about-commitment.webp',
     alt: 'Dua konsultan lingkungan meninjau kawasan industri dari area hijau',
     strength: 0.45,
-    layout: 'col-[8/13] row-[5/10] ml-[4%] max-[1050px]:col-[3/9] max-[1050px]:row-[8/14] max-[1050px]:ml-0',
-    initial: 'translate-x-12 translate-y-9 scale-[.975]',
     object: 'object-[50%_44%]',
-    delay: 410,
-    contentDelay: 920,
+    motionIndex: 3,
   },
-]
+}
 
-const strengths = cards.map((card) => card.strength)
+const cardSequence = [cards.vision, cards.mission, cards.values, cards.commitment]
+const strengths = cardSequence.map((card) => card.strength)
 
-export default function About() {
-  const [sectionRef, visible] = useInView({ threshold: 0.16 })
+function StoryCard({ card, cardRefs, satelliteRefs }) {
+  return (
+    <article
+      ref={(node) => {
+        cardRefs.current[card.motionIndex] = node
+        satelliteRefs.current[card.motionIndex] = node
+      }}
+      className={`about-story-card group relative isolate min-h-0 overflow-hidden rounded-[clamp(10px,.9vw,15px)] bg-[#173221] shadow-[0_14px_40px_rgba(25,40,26,.08)] ${card.key}`}
+    >
+      <div className="absolute -inset-[4%] -z-30 overflow-hidden">
+        <img src={card.image} alt={card.alt} loading="lazy" decoding="async" className={`story-media-img h-full w-full object-cover ${card.object}`} />
+      </div>
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_top,rgba(7,18,10,.84)_0%,rgba(7,18,10,.42)_36%,rgba(7,18,10,.04)_70%),linear-gradient(to_right,rgba(8,18,10,.1),transparent_62%)]" />
+      <div className="absolute inset-x-[clamp(14px,1.35vw,22px)] bottom-[clamp(14px,1.3vw,21px)] text-white">
+        <p className="mb-2 text-[clamp(8px,.58vw,10px)] font-semibold leading-none tracking-[.1em] text-[#8fc67f]">{card.label}</p>
+        <p className="m-0 max-w-[36ch] text-[clamp(11px,.78vw,13px)] leading-[1.5] text-white/95 [text-shadow:0_2px_16px_rgba(0,0,0,.18)]">{card.copy}</p>
+      </div>
+    </article>
+  )
+}
+
+export default function About({
+  journey = false,
+  backgroundRef,
+  headlineRef,
+  featuredRef,
+  featuredContentRef,
+  satelliteRefs,
+}) {
   const cardRefs = useRef([])
+  const localSatelliteRefs = useRef([])
+  const motionRefs = satelliteRefs ?? localSatelliteRefs
   useAboutParallax(cardRefs, strengths)
 
   return (
     <section
-      ref={sectionRef}
-      id="tentang"
       aria-labelledby="about-title"
-      className="relative z-[2] -mt-[18px] min-h-svh overflow-hidden rounded-t-[28px] bg-about px-[clamp(20px,2.2vw,36px)] py-[clamp(72px,7vw,110px)] shadow-[0_-18px_50px_rgba(10,25,14,0.08)] max-[760px]:-mt-3.5 max-[760px]:rounded-t-[22px] max-[760px]:px-[18px] max-[760px]:pt-[72px] max-[760px]:pb-[70px]"
+      className={`${journey ? 'about-journey-panel' : ''} relative z-[2] min-h-svh overflow-hidden rounded-t-[28px] bg-about px-[clamp(20px,2.2vw,36px)] py-[clamp(64px,6vw,96px)] text-ink shadow-[0_-18px_50px_rgba(10,25,14,0.08)] max-[900px]:rounded-t-[22px] max-[760px]:px-[18px] max-[760px]:py-[72px]`}
     >
-      <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(40,62,43,.14)_.55px,transparent_.55px)] [background-size:6px_6px] [mask-image:linear-gradient(to_bottom,rgba(0,0,0,.38),transparent_34%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(223,213,184,.18),transparent_38%)]" />
-      <h2 className="sr-only" id="about-title">Tentang Banua Aksha Inovasi</h2>
-
-      <div className={`relative z-[2] mx-auto mb-[clamp(28px,3.5vw,48px)] flex items-center justify-center gap-3 text-[10px] font-semibold tracking-[.16em] text-[#213524]/70 transition-all duration-700 ease-editorial max-[760px]:mb-6 max-[760px]:justify-start ${visible ? 'translate-y-0 opacity-100' : 'translate-y-[18px] opacity-0'}`} aria-hidden="true">
-        <span>01</span><i className="h-px w-[42px] bg-[#315d38]/50" /><span>TENTANG BANUA</span>
+      <div ref={backgroundRef} className="about-journey-background pointer-events-none absolute inset-0 bg-about">
+        <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(rgba(40,62,43,.14)_.55px,transparent_.55px)] [background-size:6px_6px] [mask-image:linear-gradient(to_bottom,rgba(0,0,0,.32),transparent_28%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-16%,rgba(223,213,184,.2),transparent_36%)]" />
       </div>
 
-      <div className="relative z-[2] mx-auto grid h-[clamp(620px,64vw,790px)] w-full max-w-[1380px] grid-cols-12 grid-rows-10 gap-[clamp(10px,1vw,16px)] max-[1050px]:h-[980px] max-[1050px]:grid-cols-8 max-[1050px]:grid-rows-[repeat(13,minmax(0,1fr))] max-[760px]:flex max-[760px]:h-auto max-[760px]:flex-col max-[760px]:gap-3">
-        {cards.map((card, index) => (
-          <article
-            key={card.key}
-            ref={(node) => { cardRefs.current[index] = node }}
-            className={`group relative isolate overflow-hidden rounded-[clamp(10px,.9vw,15px)] bg-[#173221] shadow-[0_14px_40px_rgba(25,40,26,.08)] transition-[transform,opacity,box-shadow] duration-[900ms] ease-editorial hover:z-[5] hover:-translate-y-[5px] hover:scale-[1.008] hover:shadow-[0_24px_52px_rgba(20,38,23,.16)] max-[760px]:m-0 max-[760px]:min-h-[290px] max-[760px]:w-full ${card.layout} ${card.featured ? 'max-[760px]:order-[-5] max-[760px]:min-h-[520px]' : card.key === 'vision' ? 'max-[760px]:order-[-4]' : card.key === 'mission' ? 'max-[760px]:order-[-3]' : card.key === 'values' ? 'max-[760px]:order-[-2]' : 'max-[760px]:order-[-1] max-[760px]:min-h-[390px]'} ${visible ? 'translate-x-0 translate-y-0 scale-100 opacity-100' : `${card.initial} opacity-0`}`}
-            style={{ transitionDelay: `${card.delay}ms` }}
-          >
-            <div className="absolute -inset-[4%] -z-30 overflow-hidden">
-              <img src={card.image} alt={card.alt} className={`story-media-img h-full w-full object-cover ${card.object}`} />
-            </div>
-            <div className={`absolute inset-0 -z-20 ${card.featured ? 'bg-[linear-gradient(to_top,rgba(6,16,9,.94)_0%,rgba(6,16,9,.63)_38%,rgba(6,16,9,.02)_74%),linear-gradient(to_right,rgba(8,18,10,.10),transparent_58%)]' : 'bg-[linear-gradient(to_top,rgba(7,18,10,.82)_0%,rgba(7,18,10,.40)_34%,rgba(7,18,10,.03)_68%),linear-gradient(to_right,rgba(8,18,10,.08),transparent_60%)]'}`} />
+      <header ref={headlineRef} className="about-journey-headline relative z-30 mx-auto w-full max-w-[1040px] text-center">
+        <h2 id="about-title" className="mx-auto m-0 max-w-[31ch] font-display text-[clamp(38px,3.35vw,54px)] font-medium leading-[1.01] tracking-[-.032em] text-[#172019] [text-wrap:balance] max-[760px]:max-w-[16ch] max-[760px]:text-[clamp(36px,9.8vw,48px)]">
+          Pertumbuhan dan keberlanjutan<br className="max-[700px]:hidden" /> tidak harus berjalan <span className="text-[#315d38]">berlawanan.</span>
+        </h2>
+        <p className="mx-auto mt-[clamp(12px,1.45vw,18px)] max-w-[68ch] text-[clamp(11px,.82vw,13px)] leading-[1.62] text-[#1d261f]/70 max-[760px]:max-w-[42ch] max-[760px]:text-xs">
+          Kami membantu perusahaan menerjemahkan kebutuhan operasional menjadi langkah lingkungan yang jelas, legal, dan dapat dijalankan.
+        </p>
+      </header>
 
-            {card.featured ? (
-              <div className={`absolute inset-x-[clamp(14px,1.35vw,22px)] bottom-[clamp(20px,2.2vw,34px)] text-white transition-all duration-700 ease-editorial ${visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`} style={{ transitionDelay: `${card.contentDelay}ms` }}>
-                <span className="mb-2.5 inline-flex size-[27px] text-[#8fcf78]" aria-hidden="true">
-                  <svg viewBox="0 0 40 40" className="h-full w-full fill-none stroke-current stroke-[1.8] [stroke-linecap:round] [stroke-linejoin:round]">
-                    <path d="M29.8 8.8C20.2 9.2 12.2 13.2 9.6 20.3c-2 5.4.3 9.7 3.8 11.1 4.6 1.8 10.1-.5 12.8-5.9 2.9-5.8 2.4-11.7 3.6-16.7Z" />
-                    <path d="M11.4 29.1c4.1-6.2 8.8-10.2 14.5-12.9" />
-                  </svg>
-                </span>
-                <h3 className="m-0 font-display text-[clamp(26px,2.25vw,38px)] font-medium leading-[.98] tracking-[-.025em]">Tentang Kami</h3>
-                <span className={`my-3 block h-0.5 w-[58px] origin-left bg-[#7fb86e] transition-transform duration-900 ease-editorial ${visible ? 'scale-x-100' : 'scale-x-0'}`} style={{ transitionDelay: '930ms' }} />
-                <p className="m-0 max-w-[42ch] text-[clamp(10px,.73vw,12px)] leading-[1.58] text-white/90 max-[760px]:text-xs">PT Banua Aksha Inovasi merupakan badan usaha jasa konsultan di bidang lingkungan hidup yang mendampingi kebutuhan project proposal, studi kelayakan, perizinan teknis, dan penyusunan dokumen secara profesional.</p>
-              </div>
-            ) : (
-              <div className={`absolute inset-x-[clamp(14px,1.35vw,22px)] bottom-[clamp(14px,1.3vw,21px)] text-white transition-all duration-700 ease-editorial ${visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`} style={{ transitionDelay: `${card.contentDelay}ms` }}>
-                <p className="mb-[7px] text-[clamp(7px,.57vw,9px)] font-semibold leading-none tracking-[.12em] text-[#8fc67f]">{card.label}</p>
-                <p className="m-0 max-w-[34ch] text-[clamp(10px,.78vw,12px)] leading-normal text-white/95 [text-shadow:0_2px_16px_rgba(0,0,0,.18)] max-[760px]:max-w-[38ch] max-[760px]:text-xs">{card.copy}</p>
-              </div>
-            )}
-          </article>
-        ))}
+      <div className="about-collage relative z-30 mx-auto mt-[clamp(44px,5vw,76px)] w-full max-w-[1380px]">
+        <div className="about-side about-side-left">
+          <StoryCard card={cards.vision} cardRefs={cardRefs} satelliteRefs={motionRefs} />
+          <StoryCard card={cards.mission} cardRefs={cardRefs} satelliteRefs={motionRefs} />
+        </div>
+
+        <article ref={featuredRef} className="about-featured-card relative isolate min-h-0 overflow-hidden rounded-[clamp(11px,1vw,16px)] bg-[#102719] shadow-[0_18px_46px_rgba(18,38,23,.13)]">
+          <div className="about-featured-fallback absolute -inset-[4%] -z-20 overflow-hidden">
+            <img src="/assets/hero-bg.webp" alt="Bentang alam hijau dengan sungai dan kawasan industri yang berdampingan" decoding="async" className="story-media-img h-full w-full object-cover object-center" />
+          </div>
+          <div className="about-featured-fallback absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(6,16,9,.95)_0%,rgba(6,16,9,.68)_38%,rgba(6,16,9,.04)_76%)]" />
+          <div ref={featuredContentRef} className="about-featured-content absolute inset-x-[clamp(18px,1.7vw,28px)] bottom-[clamp(22px,2.3vw,36px)] z-30 text-white">
+            <span className="mb-3 inline-flex size-[28px] text-[#8fcf78]" aria-hidden="true">
+              <svg viewBox="0 0 40 40" className="h-full w-full fill-none stroke-current stroke-[1.8] [stroke-linecap:round] [stroke-linejoin:round]">
+                <path d="M29.8 8.8C20.2 9.2 12.2 13.2 9.6 20.3c-2 5.4.3 9.7 3.8 11.1 4.6 1.8 10.1-.5 12.8-5.9 2.9-5.8 2.4-11.7 3.6-16.7Z" />
+                <path d="M11.4 29.1c4.1-6.2 8.8-10.2 14.5-12.9" />
+              </svg>
+            </span>
+            <h3 className="m-0 font-display text-[clamp(30px,2.6vw,42px)] font-medium leading-[.98] tracking-[-.025em]">Tentang Kami</h3>
+            <span className="my-3.5 block h-0.5 w-[58px] bg-[#7fb86e]" />
+            <p className="m-0 max-w-[44ch] text-[clamp(11px,.78vw,13px)] leading-[1.58] text-white/92 max-[760px]:text-[13px]">
+              PT Banua Aksha Inovasi (BAI Konsultan) merupakan badan usaha jasa konsultasi lingkungan yang mendampingi proposal proyek, studi kelayakan, perizinan teknis, dan penyusunan dokumen lingkungan secara profesional dan terukur.
+            </p>
+          </div>
+        </article>
+
+        <div className="about-side about-side-right">
+          <StoryCard card={cards.values} cardRefs={cardRefs} satelliteRefs={motionRefs} />
+          <StoryCard card={cards.commitment} cardRefs={cardRefs} satelliteRefs={motionRefs} />
+        </div>
       </div>
 
-      <div className={`relative z-[2] mx-auto mt-[clamp(25px,3vw,42px)] flex w-full max-w-[1380px] justify-between border-t border-[#26472a]/20 pt-[15px] text-[8px] font-semibold tracking-[.17em] text-[#26472a]/50 transition-all duration-700 ease-editorial max-[760px]:gap-[18px] max-[760px]:text-[7px] max-[760px]:leading-normal max-[410px]:flex-col ${visible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'}`} style={{ transitionDelay: '1000ms' }} aria-hidden="true">
-        <span>BANUA AKSHA INOVASI</span>
-        <span>SMART SOLUTIONS FOR THE ENVIRONMENT</span>
-      </div>
     </section>
   )
 }
