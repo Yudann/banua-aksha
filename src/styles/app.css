@@ -1146,7 +1146,7 @@ html.site-menu-locked body {
   }
 
   .commitment-canvas-shell { width: calc(100% - 24px); }
-  .commitment-canvas-stage { height: max(610px, 78svh); border-radius: 18px; }
+  .commitment-canvas-stage { height: max(700px, 84svh); border-radius: 18px; }
 
   .commitment-canvas-shade {
     background:
@@ -1169,9 +1169,9 @@ html.site-menu-locked body {
 
   .commitment-canvas-copy {
     right: 17px;
-    bottom: 126px;
+    bottom: 142px;
     left: 17px;
-    height: 150px;
+    height: 224px;
   }
 
   .commitment-canvas-copy > article { grid-template-columns: 36px minmax(0, 1fr); }
