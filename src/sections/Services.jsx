@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { ArrowUpRight } from 'lucide-react'
 import { services } from '../data/services'
 import { useInView } from '../hooks/useInView'
 
@@ -69,7 +70,7 @@ export default function Services() {
           </div>
           <div className="services-wall-intro">
             <p>Kami mendampingi kebutuhan teknis dan dokumen lingkungan secara terarah, jelas, dan sesuai lingkup kegiatan usaha.</p>
-            <a href="#kontak">Bicarakan kebutuhan Anda <span aria-hidden="true">↗</span></a>
+            <a href="#kontak">Bicarakan kebutuhan Anda <ArrowUpRight aria-hidden="true" /></a>
           </div>
         </header>
 
@@ -96,7 +97,7 @@ export default function Services() {
                   <h3>{service.title}</h3>
                   <div className="services-wall-detail">
                     <p>{service.description}</p>
-                    <a href="#kontak">Konsultasikan <span aria-hidden="true">↗</span></a>
+                    <a href="#kontak">Konsultasikan <ArrowUpRight aria-hidden="true" /></a>
                   </div>
                 </div>
               </article>

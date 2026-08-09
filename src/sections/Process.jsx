@@ -1,17 +1,19 @@
 import { useRef } from 'react'
+import { CircleCheckBig, FileSearch, FileText, MessageSquareText, Route } from 'lucide-react'
 import { processSteps } from '../data/processSteps'
 import { useProcessTimeline } from '../hooks/useProcessScroll'
 
 function ProcessIcon({ index }) {
-  const paths = [
-    <><path d="M4.5 5.5h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-3.5 3v-3h-1a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2Z"/><path d="M8 9h5M8 11.5h3.5"/></>,
-    <><path d="M5 3.5h8l4 4v5.25"/><path d="M13 3.5v4h4M5 3.5v17h7"/><circle cx="16.5" cy="16.5" r="3.25"/><path d="m19 19 2 2"/></>,
-    <><path d="M5 3.5h9l4 4v13H5Z"/><path d="M14 3.5v4h4M8 11h7M8 14h5M8 17h3"/></>,
-    <><path d="M4 18.5c3.5-7 8.5-10.5 15.5-13"/><path d="m14.5 4.5 5 1-2 4.5"/><circle cx="5" cy="18" r="2"/></>,
-    <><circle cx="12" cy="12" r="8.5"/><path d="m8 12.25 2.5 2.5L16.5 9"/></>,
+  const icons = [
+    MessageSquareText,
+    FileSearch,
+    FileText,
+    Route,
+    CircleCheckBig,
   ]
+  const Icon = icons[index] ?? FileText
 
-  return <svg className="process-timeline-icon" viewBox="0 0 24 24" aria-hidden="true">{paths[index]}</svg>
+  return <Icon className="process-timeline-icon" aria-hidden="true" />
 }
 
 export default function Process() {

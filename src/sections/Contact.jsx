@@ -1,3 +1,4 @@
+import { ArrowUpRight, MessageCirclePlus } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 
 export default function Contact() {
@@ -33,16 +34,13 @@ export default function Contact() {
             aria-label="Mulai konsultasi melalui WhatsApp"
           >
             <span className="contact-closing-action-icon">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M20 11.5a7.5 7.5 0 0 1-8 7.48 8.8 8.8 0 0 1-3.45-.9L4 19.5l1.42-4.12A7.5 7.5 0 1 1 20 11.5Z" />
-                <path d="M9 11.5h6M12 8.5v6" />
-              </svg>
+              <MessageCirclePlus aria-hidden="true" />
             </span>
             <span className="contact-closing-action-copy">
               <strong>Mulai konsultasi</strong>
               <small>Terhubung langsung melalui WhatsApp</small>
             </span>
-            <span className="contact-closing-action-arrow" aria-hidden="true">↗</span>
+            <ArrowUpRight className="contact-closing-action-arrow" aria-hidden="true" />
           </a>
         </div>
       </div>

@@ -421,7 +421,7 @@ html.lenis, html.lenis body { height: auto; }
   }
 }
 
-/* Hero → About shared scroll scene. It only activates after the JS motion
+/* Hero to About shared scroll scene. It only activates after the JS motion
    controller confirms a desktop viewport; the default remains normal flow. */
 /* One navigation component with hero and section-utility states. */
 .site-navigation { position: relative; z-index: 75; }
@@ -538,6 +538,13 @@ html.site-menu-locked body {
   transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease, transform 140ms cubic-bezier(.23, 1, .32, 1);
 }
 
+.site-nav-consult > svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  stroke-width: 1.8;
+}
+
 .site-nav-consult:active,
 .site-nav-menu-button:active,
 .site-nav-mobile-contact:active { transform: scale(.97); }
@@ -600,21 +607,20 @@ html.site-menu-locked body {
   transition: color 160ms ease, transform 140ms cubic-bezier(.23, 1, .32, 1);
 }
 
-.site-nav-menu-button span {
+.site-nav-menu-button svg {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 18px;
-  height: 1.5px;
-  border-radius: 999px;
-  background: currentColor;
-  transition: transform 200ms cubic-bezier(.23, 1, .32, 1);
+  width: 21px;
+  height: 21px;
+  stroke-width: 1.7;
+  transition: opacity 180ms ease, transform 240ms cubic-bezier(.23, 1, .32, 1);
 }
 
-.site-nav-menu-button span:first-child { transform: translate(-50%, -3.5px); }
-.site-nav-menu-button span:last-child { transform: translate(-50%, 3.5px); }
-.site-navigation[data-open="true"] .site-nav-menu-button span:first-child { transform: translate(-50%, 0) rotate(45deg); }
-.site-navigation[data-open="true"] .site-nav-menu-button span:last-child { transform: translate(-50%, 0) rotate(-45deg); }
+.site-nav-menu-icon { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0); }
+.site-nav-close-icon { opacity: 0; transform: translate(-50%, -50%) scale(.72) rotate(-18deg); }
+.site-nav-menu-button[aria-expanded="true"] .site-nav-menu-icon { opacity: 0; transform: translate(-50%, -50%) scale(.72) rotate(18deg); }
+.site-nav-menu-button[aria-expanded="true"] .site-nav-close-icon { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0); }
 
 .site-nav-backdrop {
   position: fixed;
@@ -657,18 +663,7 @@ html.site-menu-locked body {
   transition: opacity 180ms ease, transform 240ms cubic-bezier(.23, 1, .32, 1);
 }
 
-.site-nav-panel-close span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 17px;
-  height: 1.5px;
-  border-radius: 999px;
-  background: currentColor;
-}
-
-.site-nav-panel-close span:first-child { transform: translate(-50%, -50%) rotate(45deg); }
-.site-nav-panel-close span:last-child { transform: translate(-50%, -50%) rotate(-45deg); }
+.site-nav-panel-close svg { width: 19px; height: 19px; stroke-width: 1.7; }
 
 .site-navigation[data-open="true"] .site-nav-panel-close {
   opacity: 1;
@@ -739,7 +734,8 @@ html.site-menu-locked body {
 .site-nav-panel-links > a[data-active="true"] { color: var(--color-forest); }
 .site-nav-panel-links > a > span { align-self: start; padding-top: clamp(17px, 2.2vh, 25px); font-size: 8px; font-weight: 600; letter-spacing: .08em; color: rgba(49, 93, 56, .48); }
 .site-nav-panel-links > a > strong { font-family: var(--font-display); font-size: clamp(30px, 3.1vw, 49px); font-weight: 500; line-height: .96; letter-spacing: -.035em; }
-.site-nav-panel-links > a > i { font-size: 12px; font-style: normal; opacity: 0; transform: translate(-4px, 4px); transition: opacity 160ms ease, transform 180ms cubic-bezier(.23, 1, .32, 1); }
+.site-nav-panel-links > a > i { display: grid; place-items: center; font-style: normal; opacity: 0; transform: translate(-4px, 4px); transition: opacity 160ms ease, transform 180ms cubic-bezier(.23, 1, .32, 1); }
+.site-nav-panel-links > a > i > svg { width: 15px; height: 15px; stroke-width: 1.7; }
 .site-nav-panel-links > a[data-active="true"] > i { opacity: .75; transform: translate(0); }
 
 .site-nav-panel-footer {
@@ -762,6 +758,13 @@ html.site-menu-locked body {
   font-size: 10px;
   font-weight: 600;
   color: white;
+}
+
+.site-nav-panel-footer > a > svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  stroke-width: 1.8;
 }
 
 .site-nav-panel-footer > small {
@@ -878,7 +881,7 @@ html.site-menu-locked body {
 @media (prefers-reduced-motion: reduce) {
   .site-nav-utility > .site-nav-logo,
   .site-nav-utility-actions,
-  .site-nav-menu-button span,
+  .site-nav-menu-button svg,
   .site-nav-panel-close,
   .site-nav-panel,
   .site-nav-panel-links,
@@ -1644,6 +1647,14 @@ html.site-menu-locked body {
   letter-spacing: .02em;
   color: #e9f2df;
   transition: color 160ms ease, border-color 160ms ease;
+}
+
+.services-wall-intro > a > svg,
+.services-wall-detail > a > svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  stroke-width: 1.8;
 }
 
 .services-wall {
@@ -2935,6 +2946,13 @@ html.site-menu-locked body {
   display: none;
 }
 
+.values-gallery-swipe > svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  stroke-width: 1.7;
+}
+
 @media (max-width: 1050px) {
   .values-gallery {
     min-height: 0;
@@ -3281,9 +3299,10 @@ html.site-menu-locked body {
 }
 
 .contact-closing-action-arrow {
+  width: 26px;
+  height: 26px;
   justify-self: end;
-  font-size: 26px;
-  line-height: 1;
+  stroke-width: 1.45;
   transition: transform 500ms cubic-bezier(.16, 1, .3, 1);
 }
 
@@ -3389,7 +3408,8 @@ html.site-menu-locked body {
   }
 
   .contact-closing-action-arrow {
-    font-size: 22px;
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -3526,6 +3546,13 @@ html.site-menu-locked body {
   font-size: 11px;
   color: #faf8ef;
   transition: border-color 350ms ease, background-color 350ms ease, transform 450ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.footer-card-consult > svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  stroke-width: 1.8;
 }
 
 .footer-card-socials {

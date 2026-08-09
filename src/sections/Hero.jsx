@@ -1,3 +1,5 @@
+import { ArrowUpRight } from 'lucide-react'
+
 export default function Hero({ journey = false, mediaRef, contentRef }) {
   return (
     <section id="beranda" className={`${journey ? 'hero-journey-panel' : ''} relative z-[1] isolate min-h-[max(720px,100svh)] overflow-hidden bg-[#b9b39f] max-[900px]:min-h-[max(700px,100svh)] max-[640px]:min-h-[max(720px,100svh)]`} aria-labelledby="hero-title">
@@ -28,7 +30,7 @@ export default function Hero({ journey = false, mediaRef, contentRef }) {
             className="group inline-flex min-h-[42px] items-center gap-2.5 rounded-full bg-[#193b22]/95 px-[19px] text-[11px] font-medium text-white shadow-[0_10px_28px_rgba(8,24,13,0.14)] backdrop-blur-lg transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-[#245231] hover:shadow-[0_13px_30px_rgba(8,24,13,0.2)] max-[640px]:min-h-10 max-[640px]:px-4 max-[640px]:text-[10px]"
           >
             <span>Konsultasikan Proyek</span>
-            <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
+            <ArrowUpRight className="size-[14px] shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={1.8} aria-hidden="true" />
           </a>
           <a href="#layanan" className="group relative py-2 text-[11px] font-medium text-[#181b16]/85 max-[640px]:text-[10px]">
             <span>Lihat Layanan</span>

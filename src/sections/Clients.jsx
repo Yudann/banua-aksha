@@ -1,3 +1,4 @@
+import { Leaf } from 'lucide-react'
 import { clientMosaicImages, clients } from '../data/clients'
 import { useInView } from '../hooks/useInView'
 
@@ -17,10 +18,7 @@ function ClientPlaque({ name }) {
   return (
     <article className={`client-slider-plaque ${isWide ? 'is-wide' : ''}`}>
       <h3>{name}</h3>
-      <svg className="client-slider-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none">
-        <path d="M19.7 4.3C13.9 4.65 8.8 7.45 6.45 12.1c-1.2 2.4-.85 4.75.85 6.45 1.7 1.7 4.05 2.05 6.45.85 4.65-2.35 7.45-7.45 7.8-13.25.05-1.05-.8-1.9-1.85-1.85Z" />
-        <path d="M4 21c2.4-4.8 6.2-8.45 11.35-10.95" />
-      </svg>
+      <Leaf className="client-slider-icon" aria-hidden="true" />
     </article>
   )
 }

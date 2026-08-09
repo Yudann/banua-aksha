@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { ArrowUpRight, Menu, MessageCirclePlus, X } from 'lucide-react'
 
 const navItems = [
   { href: '#beranda', label: 'Beranda' },
@@ -30,8 +31,8 @@ function MenuButton({ isOpen, onClick, tabIndex = 0 }) {
       tabIndex={tabIndex}
       onClick={onClick}
     >
-      <span />
-      <span />
+      <Menu className="site-nav-menu-icon" aria-hidden="true" />
+      <X className="site-nav-close-icon" aria-hidden="true" />
     </button>
   )
 }
@@ -137,13 +138,13 @@ export default function FloatingNav() {
         <div className="site-nav-hero-links">
           {navItems.slice(1, 6).map(({ href, label }) => <a key={href} href={href} tabIndex={isUtilityVisible ? -1 : 0}>{label}</a>)}
         </div>
-        <a className="site-nav-consult" href="#kontak" tabIndex={isUtilityVisible ? -1 : 0}><span>Konsultasikan Proyek</span><span aria-hidden="true">↗</span></a>
+        <a className="site-nav-consult" href="#kontak" tabIndex={isUtilityVisible ? -1 : 0}><span>Konsultasikan Proyek</span><ArrowUpRight aria-hidden="true" /></a>
       </div>
 
       <div className="site-nav-utility" aria-hidden={!isUtilityVisible}>
         <Logo tabIndex={isUtilityVisible ? 0 : -1} />
         <div className="site-nav-utility-actions">
-          <a className="site-nav-consult site-nav-consult-utility" href="#kontak" tabIndex={isUtilityVisible && !isOpen ? 0 : -1}><span>Konsultasikan Proyek</span><span aria-hidden="true">↗</span></a>
+          <a className="site-nav-consult site-nav-consult-utility" href="#kontak" tabIndex={isUtilityVisible && !isOpen ? 0 : -1}><span>Konsultasikan Proyek</span><ArrowUpRight aria-hidden="true" /></a>
           <MenuButton isOpen={isOpen} tabIndex={isUtilityVisible ? 0 : -1} onClick={() => setIsOpen((current) => !current)} />
         </div>
       </div>
@@ -157,8 +158,7 @@ export default function FloatingNav() {
         aria-label="Tutup menu navigasi"
         onClick={() => setIsOpen(false)}
       >
-        <span />
-        <span />
+        <X aria-hidden="true" />
       </button>
 
       <div id="site-navigation-panel" className="site-nav-panel" data-lenis-prevent aria-hidden={!isOpen}>
@@ -174,13 +174,13 @@ export default function FloatingNav() {
             >
               <span>{String(index + 1).padStart(2, '0')}</span>
               <strong>{label}</strong>
-              <i aria-hidden="true">↗</i>
+              <i aria-hidden="true"><ArrowUpRight /></i>
             </a>
           ))}
 
           <div className="site-nav-panel-footer">
             <a href="#kontak" tabIndex={isOpen ? 0 : -1} onClick={() => setIsOpen(false)}>
-              <span>Konsultasikan Proyek</span><span aria-hidden="true">↗</span>
+              <span>Konsultasikan Proyek</span><ArrowUpRight aria-hidden="true" />
             </a>
             <small>Environmental consulting · Indonesia</small>
           </div>
@@ -200,10 +200,7 @@ export default function FloatingNav() {
         tabIndex={isMobileContactVisible && !isOpen ? 0 : -1}
         aria-label="Menuju bagian kontak"
       >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20 11.5a7.5 7.5 0 0 1-8 7.48 8.8 8.8 0 0 1-3.45-.9L4 19.5l1.42-4.12A7.5 7.5 0 1 1 20 11.5Z" />
-          <path d="M9 11.5h6M12 8.5v6" />
-        </svg>
+        <MessageCirclePlus aria-hidden="true" />
       </a>
     </nav>
   )

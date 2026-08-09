@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Leaf } from 'lucide-react'
 import { useAboutParallax } from '../hooks/useAboutParallax'
 
 const cards = {
@@ -113,10 +114,7 @@ export default function About({
           <div className="about-featured-fallback absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(6,16,9,.95)_0%,rgba(6,16,9,.68)_38%,rgba(6,16,9,.04)_76%)]" />
           <div ref={featuredContentRef} className="about-featured-content absolute inset-x-[clamp(18px,1.7vw,28px)] bottom-[clamp(22px,2.3vw,36px)] z-30 text-white">
             <span className="mb-3 inline-flex size-[28px] text-[#8fcf78]" aria-hidden="true">
-              <svg viewBox="0 0 40 40" className="h-full w-full fill-none stroke-current stroke-[1.8] [stroke-linecap:round] [stroke-linejoin:round]">
-                <path d="M29.8 8.8C20.2 9.2 12.2 13.2 9.6 20.3c-2 5.4.3 9.7 3.8 11.1 4.6 1.8 10.1-.5 12.8-5.9 2.9-5.8 2.4-11.7 3.6-16.7Z" />
-                <path d="M11.4 29.1c4.1-6.2 8.8-10.2 14.5-12.9" />
-              </svg>
+              <Leaf className="h-full w-full" strokeWidth={1.8} />
             </span>
             <h3 className="m-0 font-display text-[clamp(30px,2.6vw,42px)] font-medium leading-[.98] tracking-[-.025em]">Tentang Kami</h3>
             <span className="my-3.5 block h-0.5 w-[58px] bg-[#7fb86e]" />

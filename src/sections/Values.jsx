@@ -1,14 +1,10 @@
 import { useState } from 'react'
+import { ArrowRight, Leaf } from 'lucide-react'
 import { values } from '../data/values'
 import { useInView } from '../hooks/useInView'
 
 function ValueIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M19.7 4.3C13.9 4.65 8.8 7.45 6.45 12.1c-1.2 2.4-.85 4.75.85 6.45 1.7 1.7 4.05 2.05 6.45.85 4.65-2.35 7.45-7.45 7.8-13.25.05-1.05-.8-1.9-1.85-1.85Z" />
-      <path d="M4 21c2.4-4.8 6.2-8.45 11.35-10.95" />
-    </svg>
-  )
+  return <Leaf aria-hidden="true" />
 }
 
 export default function Values() {
@@ -70,7 +66,7 @@ export default function Values() {
           })}
         </div>
 
-        <p className="values-gallery-swipe">Geser untuk melihat nilai lainnya <span aria-hidden="true">→</span></p>
+        <p className="values-gallery-swipe">Geser untuk melihat nilai lainnya <ArrowRight aria-hidden="true" /></p>
       </div>
     </section>
   )
