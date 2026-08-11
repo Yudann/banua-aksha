@@ -1760,7 +1760,7 @@ html.contact-success-open body {
 }
 
 .services-wall > article[data-active="true"] .services-wall-detail {
-  max-height: 190px;
+  max-height: 230px;
   opacity: 1;
   transform: translateY(0);
   transition-delay: 80ms;
@@ -1772,6 +1772,7 @@ html.contact-success-open body {
   font-size: clamp(13px, .9vw, 15px);
   line-height: 1.65;
   color: rgba(24, 53, 31, .68);
+  text-wrap: pretty;
 }
 
 .services-wall-detail > a {
@@ -1878,7 +1879,7 @@ html.contact-success-open body {
   .services-wall-copy h3,
   .services-wall > article[data-active="true"] .services-wall-copy h3 { max-width: 12ch; font-size: clamp(36px, 10.5vw, 48px); }
   .services-wall-detail,
-  .services-wall > article[data-active="true"] .services-wall-detail { max-height: 210px; opacity: 1; transform: none; }
+  .services-wall > article[data-active="true"] .services-wall-detail { max-height: 245px; opacity: 1; transform: none; }
   .services-wall > article:not([data-active="true"]) .services-wall-detail > p { color: rgba(244, 241, 232, .65); }
   .services-wall > article:not([data-active="true"]) .services-wall-detail > a { border-color: rgba(155, 201, 139, .45); color: #dcebd3; }
 
@@ -2191,6 +2192,7 @@ html.contact-success-open body {
   .hero-primary-content {
     top: 48%;
   }
+
 }
 /* About: parallax stays custom because it is driven by a CSS variable from React. */
 .story-media-img {
