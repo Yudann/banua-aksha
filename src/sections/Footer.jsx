@@ -1,4 +1,5 @@
 import { ArrowUpRight, BriefcaseBusiness, Camera, Leaf, Mail, MapPin, Phone } from 'lucide-react'
+import { services } from '../data/services'
 import { useInView } from '../hooks/useInView'
 
 const exploreLinks = [
@@ -9,7 +10,7 @@ const exploreLinks = [
   ['#kontak', 'Kontak'],
 ]
 
-const serviceLinks = ['AMDAL', 'UKL–UPL', 'Persetujuan Teknis', 'SLO', 'Pengelolaan LB3', 'Dokumen Lingkungan']
+const serviceLinks = services.map(({ title }) => title)
 
 const companyLinks = [
   ['#tentang', 'Profil Perusahaan'],
@@ -45,7 +46,7 @@ export default function Footer() {
               </a>
               <small className="footer-card-tagline">SMART SOLUTIONS FOR THE ENVIRONMENT</small>
               <p>Solusi profesional untuk perizinan, dokumen lingkungan, dan kebutuhan pendampingan perusahaan.</p>
-              <a className="footer-card-consult" href="https://wa.me/628119799188" target="_blank" rel="noopener noreferrer">
+              <a className="footer-card-consult" href="#kontak">
                 <span>Konsultasikan Proyek</span><ArrowUpRight aria-hidden="true" />
               </a>
 
