@@ -3317,6 +3317,9 @@ html.contact-success-open body {
   display: grid;
   max-height: min(336px, 42svh);
   overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+  touch-action: pan-y;
   padding: 6px;
   border: 1px solid rgba(31, 58, 37, .28);
   border-radius: 10px;

@@ -183,7 +183,13 @@ export default function Contact() {
                   <span>{form.service || 'Pilih layanan yang dibutuhkan'}</span>
                   <ChevronDown aria-hidden="true" />
                 </button>
-                <span id="contact-service-options" className="contact-service-options" role="listbox" aria-label="Pilih layanan">
+                <span
+                  id="contact-service-options"
+                  className="contact-service-options"
+                  role="listbox"
+                  aria-label="Pilih layanan"
+                  data-lenis-prevent
+                >
                   {services.map((service, index) => (
                     <button
                       key={service.title}
