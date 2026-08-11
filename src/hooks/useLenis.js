@@ -58,12 +58,19 @@ export function useLenis() {
       else lenis.start()
     }
 
+    const onScrollLock = (event) => {
+      if (event.detail?.locked) lenis.stop()
+      else lenis.start()
+    }
+
     document.addEventListener('click', onClick)
     window.addEventListener('site-menu-lock', onMenuLock)
+    window.addEventListener('site-scroll-lock', onScrollLock)
 
     return () => {
       document.removeEventListener('click', onClick)
       window.removeEventListener('site-menu-lock', onMenuLock)
+      window.removeEventListener('site-scroll-lock', onScrollLock)
       window.cancelAnimationFrame(frame)
       lenis.destroy()
     }
