@@ -62,8 +62,8 @@ function StoryCard({ card, cardRefs, satelliteRefs }) {
       </div>
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_top,rgba(7,18,10,.84)_0%,rgba(7,18,10,.42)_36%,rgba(7,18,10,.04)_70%),linear-gradient(to_right,rgba(8,18,10,.1),transparent_62%)]" />
       <div className="absolute inset-x-[clamp(14px,1.35vw,22px)] bottom-[clamp(14px,1.3vw,21px)] text-white">
-        <p className="mb-2 text-[clamp(8px,.58vw,10px)] font-semibold leading-none tracking-[.1em] text-[#8fc67f]">{card.label}</p>
-        <p className="m-0 max-w-[36ch] text-[clamp(11px,.78vw,13px)] leading-[1.5] text-white/95 [text-shadow:0_2px_16px_rgba(0,0,0,.18)]">{card.copy}</p>
+        <p className="mb-2 text-[clamp(10px,.78vw,12px)] font-semibold leading-[1.15] tracking-[.09em] text-[#8fc67f]">{card.label}</p>
+        <p className="m-0 max-w-[36ch] text-[clamp(14px,1.1vw,16px)] leading-[1.5] text-white/95 [text-shadow:0_2px_16px_rgba(0,0,0,.18)] max-[760px]:text-[14px]">{card.copy}</p>
       </div>
     </article>
   )
@@ -96,7 +96,7 @@ export default function About({
         <h2 id="about-title" className="mx-auto m-0 max-w-[31ch] font-display text-[clamp(38px,3.35vw,54px)] font-medium leading-[1.01] tracking-[-.032em] text-[#172019] [text-wrap:balance] max-[760px]:max-w-[16ch] max-[760px]:text-[clamp(36px,9.8vw,48px)]">
           Pertumbuhan dan keberlanjutan<br className="max-[700px]:hidden" /> tidak harus berjalan <span className="text-[#315d38]">berlawanan.</span>
         </h2>
-        <p className="mx-auto mt-[clamp(12px,1.45vw,18px)] max-w-[68ch] text-[clamp(11px,.82vw,13px)] leading-[1.62] text-[#1d261f]/70 max-[760px]:max-w-[42ch] max-[760px]:text-xs">
+        <p className="mx-auto mt-[clamp(12px,1.45vw,18px)] max-w-[68ch] text-[clamp(15px,1.05vw,17px)] leading-[1.55] text-[#1d261f]/80 max-[760px]:max-w-[42ch] max-[760px]:text-[14px] max-[760px]:leading-[1.6]">
           Kami membantu perusahaan menerjemahkan kebutuhan operasional menjadi langkah lingkungan yang jelas, legal, dan dapat dijalankan.
         </p>
       </header>
@@ -118,7 +118,7 @@ export default function About({
             </span>
             <h3 className="m-0 font-display text-[clamp(30px,2.6vw,42px)] font-medium leading-[.98] tracking-[-.025em]">Tentang Kami</h3>
             <span className="my-3.5 block h-0.5 w-[58px] bg-[#7fb86e]" />
-            <p className="m-0 max-w-[44ch] text-[clamp(11px,.78vw,13px)] leading-[1.58] text-white/92 max-[760px]:text-[13px]">
+            <p className="m-0 max-w-[44ch] text-[clamp(14px,1.05vw,16px)] leading-[1.6] text-white/95 max-[760px]:text-[14px]">
               PT Banua Aksha Inovasi (BAI Konsultan) merupakan badan usaha jasa konsultasi lingkungan yang mendampingi proposal proyek, studi kelayakan, perizinan teknis, dan penyusunan dokumen lingkungan secara profesional dan terukur.
             </p>
           </div>
