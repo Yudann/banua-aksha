@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { services } from '../data/services'
 import { useInView } from '../hooks/useInView'
 
-const serviceCodes = ['AMDAL', 'UKL-UPL', 'PROPER', 'PERTEK', 'PLH', 'LB3', 'SLO']
+const serviceCodes = ['AMDAL', 'UKL-UPL', 'PROPER', 'PERTEK', 'PLH', 'LB3', 'SLO', 'LAINNYA']
 
 export default function Services() {
   const [sectionRef, visible] = useInView({ threshold: 0.08 })

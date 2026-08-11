@@ -6,4 +6,5 @@ export const services = [
   { title: 'Persetujuan Lingkungan Hidup', description: 'Pendampingan pengajuan Persetujuan Lingkungan Hidup sesuai kebutuhan kegiatan usaha.' },
   { title: 'Pemanfaatan dan Pengolahan LB3', description: 'Pendampingan pengajuan Persetujuan Teknis Pemanfaatan LB3 dan Persetujuan Teknis Pengolahan LB3.' },
   { title: 'Sertifikat Laik Operasi (SLO)', description: 'Pendampingan pengajuan Sertifikat Laik Operasi (SLO) sesuai kebutuhan perusahaan.' },
+  { title: 'Lainnya', description: 'Konsultasikan kebutuhan layanan lingkungan lainnya bersama tim Banua Aksha Inovasi.' },
 ]
