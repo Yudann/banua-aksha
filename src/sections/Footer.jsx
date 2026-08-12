@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="footer-card-grid">
             <div className="footer-card-brand">
               <a href="#beranda" className="footer-card-logo" aria-label="Kembali ke beranda">
-                <img src="/banua-logo.png" alt="" />
+                <img src="/banua-logo.png" alt="" width="255" height="255" />
                 <span>Banua Aksha</span>
               </a>
               <small className="footer-card-tagline">SMART SOLUTIONS FOR THE ENVIRONMENT</small>
@@ -51,7 +51,7 @@ export default function Footer() {
               </a>
 
               <div className="footer-card-socials" aria-label="Kontak email Banua Aksha">
-                <a href="mailto:contact@petebaik.com" aria-label="Kirim email"><Mail aria-hidden="true" /></a>
+                <a href="mailto:admin@baikonsultan.com" aria-label="Kirim email"><Mail aria-hidden="true" /></a>
               </div>
             </div>
 
@@ -70,7 +70,7 @@ export default function Footer() {
               {companyLinks.map(([href, label]) => <FooterLink key={label} href={href}>{label}</FooterLink>)}
             </nav>
 
-            <div className="footer-card-column footer-card-contact">
+            <address className="footer-card-column footer-card-contact">
               <FooterHeading>HUBUNGI KAMI</FooterHeading>
               <a href="https://maps.google.com/?q=Villa+Melati+Mas+V-21+No+A5+Serpong+Utara+Tangerang+Selatan+Banten+15323" target="_blank" rel="noopener noreferrer">
                 <MapPin aria-hidden="true" />
@@ -80,11 +80,11 @@ export default function Footer() {
                 <Phone aria-hidden="true" />
                 <span>+62 811 9271 718</span>
               </a>
-              <a href="mailto:contact@petebaik.com">
+              <a href="mailto:admin@baikonsultan.com">
                 <Mail aria-hidden="true" />
-                <span>contact@petebaik.com</span>
+                <span>admin@baikonsultan.com</span>
               </a>
-            </div>
+            </address>
           </div>
 
           <div className="footer-card-bottom">
