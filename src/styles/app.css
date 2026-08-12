@@ -2596,6 +2596,10 @@ html.contact-success-open body {
   flex-basis: clamp(320px, 24vw, 374px);
 }
 
+.client-slider-plaque.is-extra-wide {
+  flex-basis: clamp(410px, 31vw, 490px);
+}
+
 .client-slider-plaque h3 {
   max-width: 23ch;
   margin: 0;
@@ -2605,6 +2609,12 @@ html.contact-success-open body {
   line-height: 1.02;
   letter-spacing: -.027em;
   color: #1b261e;
+}
+
+.client-slider-plaque.is-extra-wide h3 {
+  max-width: 29ch;
+  font-size: clamp(21px, 1.45vw, 25px);
+  line-height: 1.08;
 }
 
 .client-slider-icon {
@@ -2713,9 +2723,20 @@ html.contact-success-open body {
     flex-basis: min(71vw, 278px);
   }
 
+  .client-slider-plaque.is-extra-wide {
+    flex-basis: min(82vw, 330px);
+  }
+
   .client-slider-plaque h3 {
     max-width: 20ch;
     font-size: clamp(21px, 6.2vw, 24px);
+  }
+
+
+  .client-slider-plaque.is-extra-wide h3 {
+    max-width: 25ch;
+    font-size: clamp(19px, 5.4vw, 22px);
+    line-height: 1.1;
   }
 
   .client-slider-icon {

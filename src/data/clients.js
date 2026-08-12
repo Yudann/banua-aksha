@@ -1,17 +1,13 @@
-export const clients = [
-  'PT. Angkasa Pura Support',
-  'PT. Paloh Singkawang Stabat',
-  'PT. Sriwijaya Bara Priharum',
-  'PT. Batubara Mandiri',
-  'PT. Musi Bara Lematang',
-  'PT. Musim Mas Group',
-  'PT. Musi Prima Coal',
-  'PT. Wahana Bara Sentosa',
-  'PT. Grand Anugerah Jaya',
-  'PT. Sumatra Prima Fibreboard',
-  'PT. Wilton Indonesia',
-  'PT. Gunung Madu Plantations',
-  'PT. Pemuka Sakti Manis Indah',
+export const clientSectors = [
+  'Kawasan Industri',
+  'Pertambangan Batubara',
+  'Pertambangan Mineral (Emas, Nikel, Timah, dan Mineral Lainnya)',
+  'Perkebunan dan Industri Kelapa Sawit',
+  'Perkebunan dan Industri Gula',
+  'Industri Produk Kayu & Fibreboard',
+  'Jasa Kebandarudaraan & Pendukung Penerbangan',
+  'Pengelolaan dan Pemanfaatan Limbah B3 dan Non-B3',
+  'Infrastruktur dan Konstruksi',
 ]
 
 export const clientMosaicImages = [

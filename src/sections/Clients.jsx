@@ -1,5 +1,5 @@
 import { Leaf } from 'lucide-react'
-import { clientMosaicImages, clients } from '../data/clients'
+import { clientMosaicImages, clientSectors } from '../data/clients'
 import { useInView } from '../hooks/useInView'
 
 const mosaicClasses = [
@@ -12,11 +12,11 @@ const mosaicClasses = [
   'client-slider-mosaic-g',
 ]
 
-function ClientPlaque({ name }) {
-  const isWide = name.length > 27
+function SectorPlaque({ name }) {
+  const widthClass = name.length > 50 ? 'is-extra-wide' : name.length > 27 ? 'is-wide' : ''
 
   return (
-    <article className={`client-slider-plaque ${isWide ? 'is-wide' : ''}`}>
+    <article className={`client-slider-plaque ${widthClass}`}>
       <h3>{name}</h3>
       <Leaf className="client-slider-icon" aria-hidden="true" />
     </article>
@@ -34,7 +34,7 @@ function MarqueeRow({ items, reverse = false }) {
             aria-hidden={copy === 1 ? 'true' : undefined}
           >
             {items.map((name) => (
-              <ClientPlaque key={`${copy}-${name}`} name={name} />
+              <SectorPlaque key={`${copy}-${name}`} name={name} />
             ))}
           </div>
         ))}
@@ -45,8 +45,8 @@ function MarqueeRow({ items, reverse = false }) {
 
 export default function Clients() {
   const [sectionRef, visible] = useInView({ threshold: 0.08 })
-  const first = clients.slice(0, 7)
-  const second = clients.slice(7)
+  const first = clientSectors.slice(0, 5)
+  const second = clientSectors.slice(5)
 
   return (
     <section
@@ -75,7 +75,7 @@ export default function Clients() {
         <p>Kolaborasi yang dibangun melalui pendampingan lingkungan yang terukur dan dapat dijalankan.</p>
       </header>
 
-      <div className="client-slider-desktop" aria-label="Daftar perusahaan klien">
+      <div className="client-slider-desktop" aria-label="Daftar sektor industri yang didampingi">
         <MarqueeRow items={first} />
         <MarqueeRow items={second} reverse />
       </div>
