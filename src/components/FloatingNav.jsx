@@ -13,9 +13,9 @@ const navItems = [
 
 function Logo({ showName = false, tabIndex = 0 }) {
   return (
-    <a className="site-nav-logo" href="#beranda" tabIndex={tabIndex} aria-label="Banua Aksha — Beranda">
-      <img src="/banua-logo.png" alt="" width="255" height="255" />
-      {showName && <span>Banua Aksha</span>}
+    <a className="site-nav-logo" href="/" tabIndex={tabIndex} aria-label="BAI Konsultan — Beranda">
+      <img src="/banua-logo.png" alt="Logo BAI Konsultan" width="255" height="255" />
+      {showName && <span>BAI Konsultan</span>}
     </a>
   )
 }

@@ -32,7 +32,7 @@ export default function Footer() {
   const [footerRef, visible] = useInView({ threshold: 0.08 })
 
   return (
-    <footer ref={footerRef} className="footer-frame" aria-label="Footer Banua Aksha Inovasi">
+    <footer ref={footerRef} className="footer-frame" aria-label="Footer BAI Konsultan">
       <div className="footer-card" data-nav-surface="dark">
         <div className="footer-card-image" aria-hidden="true" />
         <div className="footer-card-overlay" aria-hidden="true" />
@@ -40,9 +40,9 @@ export default function Footer() {
         <div className="footer-card-inner" data-visible={visible}>
           <div className="footer-card-grid">
             <div className="footer-card-brand">
-              <a href="#beranda" className="footer-card-logo" aria-label="Kembali ke beranda">
-                <img src="/banua-logo.png" alt="" width="255" height="255" />
-                <span>Banua Aksha</span>
+              <a href="/" className="footer-card-logo" aria-label="BAI Konsultan — Kembali ke beranda">
+                <img src="/banua-logo.png" alt="Logo BAI Konsultan" width="255" height="255" />
+                <span>BAI Konsultan</span>
               </a>
               <small className="footer-card-tagline">SMART SOLUTIONS FOR THE ENVIRONMENT</small>
               <p>Solusi profesional untuk perizinan, dokumen lingkungan, dan kebutuhan pendampingan perusahaan.</p>
@@ -50,7 +50,7 @@ export default function Footer() {
                 <span>Konsultasikan Proyek</span><ArrowUpRight aria-hidden="true" />
               </a>
 
-              <div className="footer-card-socials" aria-label="Kontak email Banua Aksha">
+              <div className="footer-card-socials" aria-label="Kontak email BAI Konsultan">
                 <a href="mailto:admin@baikonsultan.com" aria-label="Kirim email"><Mail aria-hidden="true" /></a>
               </div>
             </div>
