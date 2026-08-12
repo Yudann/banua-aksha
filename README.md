@@ -102,7 +102,7 @@ vite.config.js               Konfigurasi Vite dan API lokal
 | Proses kerja | `src/data/processSteps.js` dan `src/sections/Process.jsx` |
 | Visi dan misi | `src/sections/VisionMission.jsx` dan `src/data/missions.js` |
 | Komitmen | `src/data/commitments.js` |
-| Daftar klien | `src/data/clients.js` |
+| Daftar sektor industri | `src/data/clients.js` |
 | Nilai perusahaan | `src/data/values.js` |
 | Form kontak | `src/sections/Contact.jsx` |
 | Footer dan informasi kontak | `src/sections/Footer.jsx` |

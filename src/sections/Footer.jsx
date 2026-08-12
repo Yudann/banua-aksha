@@ -78,9 +78,9 @@ export default function Footer() {
                 <MapPin aria-hidden="true" />
                 <span>Villa Melati Mas, V-21 no. A5<br/>Serpong Utara, Kota Tangerang Selatan<br/>Banten — 15323</span>
               </a>
-              <a href="tel:+628119799188">
+              <a href="tel:+628119271718">
                 <Phone aria-hidden="true" />
-                <span>+62 811 9799 188</span>
+                <span>+62 811 9271 718</span>
               </a>
               <a href="mailto:contact@petebaik.com">
                 <Mail aria-hidden="true" />
