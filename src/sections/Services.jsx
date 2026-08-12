@@ -80,9 +80,10 @@ export default function Services() {
             return (
               <article
                 key={service.title}
-                data-service-panel
-                data-active={isActive}
-                tabIndex={0}
+                 data-service-panel
+                 data-active={isActive}
+                 data-content-size={service.compact ? 'compact' : undefined}
+                 tabIndex={0}
                 aria-current={isActive ? 'true' : undefined}
                 onMouseEnter={() => setActive(index)}
                 onFocus={() => setActive(index)}
