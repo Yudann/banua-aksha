@@ -49,11 +49,7 @@ Email visitor digunakan sebagai `Reply-To`, bukan sebagai `From`. Sender selalu 
 
 ### Dependency PHP
 
-Dependency backend didefinisikan di `server/composer.json` dan tidak dibundle oleh npm.
-
-```bash
-composer install --working-dir=server --no-dev --optimize-autoloader
-```
+Endpoint memakai tiga source file resmi PHPMailer yang disimpan di `server/phpmailer/src`. Tidak diperlukan package manager PHP atau instalasi melalui terminal hosting. File tersebut berasal dari rilis resmi PHPMailer v7.1.1 dan dimuat langsung oleh endpoint.
 
 ### Config lokal
 
@@ -82,9 +78,12 @@ Struktur yang direkomendasikan:
 ```text
 /home/baic1929/
   private/
-    composer.json
     mail-config.php
-    vendor/
+    phpmailer/
+      src/
+        Exception.php
+        PHPMailer.php
+        SMTP.php
   public_html/
     api/contact.php
     assets/
@@ -98,21 +97,15 @@ Struktur yang direkomendasikan:
 Langkah setup:
 
 1. Buat `/home/baic1929/private` di luar `public_html`.
-2. Upload `server/composer.json` ke folder tersebut.
-3. Jalankan Composer di folder private:
-
-   ```bash
-   cd /home/baic1929/private
-   composer install --no-dev --optimize-autoloader
-   ```
-
+2. Buat `/home/baic1929/private/phpmailer/src` melalui cPanel File Manager.
+3. Upload `Exception.php`, `PHPMailer.php`, dan `SMTP.php` dari `server/phpmailer/src` ke folder tersebut.
 4. Salin `server/mail-config.example.php` menjadi `/home/baic1929/private/mail-config.php`.
 5. Isi password mailbox yang benar hanya pada file private tersebut.
 6. Pastikan permission file config membatasi akses ke akun hosting, misalnya `600` bila didukung.
 7. Build frontend secara lokal dan upload **isi** folder `dist` ke `public_html`.
 8. Pastikan hidden file `.htaccess` ikut ter-upload.
 
-Jika Composer tidak tersedia di terminal cPanel, jalankan `composer install --working-dir=server --no-dev --optimize-autoloader` secara lokal, lalu upload folder `server/vendor`, `server/composer.json`, dan config production ke `/home/baic1929/private`.
+Library email tidak diletakkan di `public_html`, sehingga source library dan credential tetap berada di luar web root. Jika PHPMailer perlu diperbarui, unduh tiga file source yang sama dari rilis resmi PHPMailer, audit kompatibilitasnya, lalu ganti file di repository dan folder private hosting.
 
 ## Konfigurasi Mail
 
@@ -142,8 +135,8 @@ public/
   sitemap.xml                 Sitemap homepage
   banua-logo.png              Logo dan favicon
 server/
-  composer.json               Dependency PHPMailer
   mail-config.example.php     Template config tanpa secret
+  phpmailer/src/              Source resmi PHPMailer untuk upload manual
 src/
   components/                 Navigasi dan komponen reusable
   data/                       Copy layanan, sektor, misi, nilai, dan proses
