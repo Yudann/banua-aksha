@@ -57,9 +57,9 @@ export default function Clients() {
     >
       <div className="client-slider-visual" aria-hidden="true">
         <div className="client-slider-mosaic">
-          {clientMosaicImages.map((src, index) => (
-            <figure key={src} className={mosaicClasses[index]}>
-              <img src={src} alt="" loading="lazy" />
+          {clientMosaicImages.map((image, index) => (
+            <figure key={image.src} className={mosaicClasses[index]}>
+              <img src={image.src} alt="" width={image.width} height={image.height} loading="lazy" decoding="async" />
             </figure>
           ))}
         </div>

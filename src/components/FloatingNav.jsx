@@ -14,7 +14,7 @@ const navItems = [
 function Logo({ showName = false, tabIndex = 0 }) {
   return (
     <a className="site-nav-logo" href="#beranda" tabIndex={tabIndex} aria-label="Banua Aksha — Beranda">
-      <img src="/banua-logo.png" alt="" />
+      <img src="/banua-logo.png" alt="" width="255" height="255" />
       {showName && <span>Banua Aksha</span>}
     </a>
   )
@@ -187,7 +187,7 @@ export default function FloatingNav() {
         </div>
 
         <figure className="site-nav-panel-visual">
-          <img src="/assets/about-vision.webp" alt="Tim Banua Aksha berdiskusi di area lapangan" loading="lazy" />
+          <img src="/assets/about-vision.webp" alt="Tim BAI Konsultan berdiskusi saat peninjauan lapangan" width="1122" height="1402" loading="lazy" decoding="async" />
           <span aria-hidden="true" />
           <figcaption><small>Banua Aksha Inovasi</small><strong>Solusi lingkungan yang dapat dijalankan.</strong></figcaption>
         </figure>

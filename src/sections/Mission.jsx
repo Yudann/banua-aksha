@@ -8,7 +8,7 @@ export default function Mission() {
     <section ref={sectionRef} id="misi" aria-labelledby="mission-title" className="relative isolate overflow-hidden bg-ivory pt-[clamp(88px,7vw,112px)] pb-[clamp(104px,8vw,132px)] text-[#162019] max-[820px]:pt-[78px] max-[820px]:pb-[92px]">
       <div className="mission-section-wash pointer-events-none absolute inset-0 z-[3]" />
       <div className={`mission-photo-mask pointer-events-none absolute inset-y-0 right-0 z-[1] w-[min(48vw,900px)] transition-all duration-[950ms] ease-editorial max-[1100px]:w-[46vw] max-[820px]:top-auto max-[820px]:h-[36%] max-[820px]:w-full ${visible ? 'translate-x-0 opacity-100' : 'translate-x-7 opacity-0'}`}>
-        <img src="/assets/hero-bg.webp" alt="" loading="lazy" className="h-full w-full object-cover object-[68%_center] opacity-[.56] [filter:saturate(.68)_contrast(.88)_brightness(1.11)]" />
+        <img src="/assets/hero-bg.webp" alt="" width="1672" height="941" loading="lazy" decoding="async" className="h-full w-full object-cover object-[68%_center] opacity-[.56] [filter:saturate(.68)_contrast(.88)_brightness(1.11)]" />
         <div className="mission-photo-overlay absolute inset-0" />
       </div>
 

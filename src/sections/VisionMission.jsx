@@ -35,6 +35,8 @@ export default function VisionMission() {
             <img
               src="/assets/about-vision.webp"
               alt="Tim Banua Aksha melakukan peninjauan lingkungan di lapangan"
+              width="1122"
+              height="1402"
               loading="lazy"
               style={{ '--mission-shift': activeMission }}
             />

@@ -114,6 +114,8 @@ export default function Commitments() {
                 <img
                   src={item.image}
                   alt={active === index ? item.alt : ''}
+                  width="1672"
+                  height="941"
                   loading={index === 0 ? 'eager' : 'lazy'}
                   decoding="async"
                   style={{ objectPosition: imagePositions[index] }}

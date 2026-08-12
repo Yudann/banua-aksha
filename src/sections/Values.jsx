@@ -50,7 +50,10 @@ export default function Values() {
                   <img
                     src={value.image}
                     alt=""
+                    width={value.width}
+                    height={value.height}
                     loading="lazy"
+                    decoding="async"
                     sizes="(max-width: 1050px) 84vw, 42vw"
                   />
                   <span className="values-gallery-overlay" aria-hidden="true" />

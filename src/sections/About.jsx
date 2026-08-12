@@ -9,6 +9,8 @@ const cards = {
     copy: 'Menjadi konsultan lingkungan terpercaya yang memberikan solusi inovatif untuk pembangunan berkelanjutan.',
     image: '/assets/about-vision.webp',
     alt: 'Tim konsultan lingkungan meninjau kondisi lapangan di area hutan',
+    width: 1122,
+    height: 1402,
     strength: 0.55,
     object: 'object-[50%_38%]',
     motionIndex: 0,
@@ -19,6 +21,8 @@ const cards = {
     copy: 'Memberikan layanan konsultasi lingkungan yang profesional, berkualitas, dan tepat waktu.',
     image: '/assets/about-mission.webp',
     alt: 'Pengambilan sampel air sebagai bagian dari pemantauan kualitas lingkungan',
+    width: 1122,
+    height: 1402,
     strength: 0.8,
     object: 'object-[50%_46%]',
     motionIndex: 1,
@@ -29,6 +33,8 @@ const cards = {
     copy: 'Integritas, profesionalisme, inovasi, kolaborasi, dan kepedulian lingkungan.',
     image: '/assets/about-values.webp',
     alt: 'Tim konsultan berdiskusi dan meninjau dokumen serta data lingkungan',
+    width: 1448,
+    height: 1086,
     strength: 0.65,
     object: 'object-[50%_48%]',
     motionIndex: 2,
@@ -39,6 +45,8 @@ const cards = {
     copy: 'Mendampingi setiap langkah bisnis untuk tumbuh bersama lingkungan.',
     image: '/assets/about-commitment.webp',
     alt: 'Dua konsultan lingkungan meninjau kawasan industri dari area hijau',
+    width: 1122,
+    height: 1402,
     strength: 0.45,
     object: 'object-[50%_44%]',
     motionIndex: 3,
@@ -58,7 +66,7 @@ function StoryCard({ card, cardRefs, satelliteRefs }) {
       className={`about-story-card group relative isolate min-h-0 overflow-hidden rounded-[clamp(10px,.9vw,15px)] bg-[#173221] shadow-[0_14px_40px_rgba(25,40,26,.08)] ${card.key}`}
     >
       <div className="absolute -inset-[4%] -z-30 overflow-hidden">
-        <img src={card.image} alt={card.alt} loading="lazy" decoding="async" className={`story-media-img h-full w-full object-cover ${card.object}`} />
+        <img src={card.image} alt={card.alt} width={card.width} height={card.height} loading="lazy" decoding="async" className={`story-media-img h-full w-full object-cover ${card.object}`} />
       </div>
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_top,rgba(7,18,10,.84)_0%,rgba(7,18,10,.42)_36%,rgba(7,18,10,.04)_70%),linear-gradient(to_right,rgba(8,18,10,.1),transparent_62%)]" />
       <div className="absolute inset-x-[clamp(14px,1.35vw,22px)] bottom-[clamp(14px,1.3vw,21px)] text-white">
@@ -109,7 +117,7 @@ export default function About({
 
         <article ref={featuredRef} className="about-featured-card relative isolate min-h-0 overflow-hidden rounded-[clamp(11px,1vw,16px)] bg-[#102719] shadow-[0_18px_46px_rgba(18,38,23,.13)]">
           <div className="about-featured-fallback absolute -inset-[4%] -z-20 overflow-hidden">
-            <img src="/assets/hero-bg.webp" alt="Bentang alam hijau dengan sungai dan kawasan industri yang berdampingan" decoding="async" className="story-media-img h-full w-full object-cover object-center" />
+            <img src="/assets/hero-bg.webp" alt="Bentang alam hijau dengan sungai dan kawasan industri yang berdampingan" width="1672" height="941" decoding="async" className="story-media-img h-full w-full object-cover object-center" />
           </div>
           <div className="about-featured-fallback absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(6,16,9,.95)_0%,rgba(6,16,9,.68)_38%,rgba(6,16,9,.04)_76%)]" />
           <div ref={featuredContentRef} className="about-featured-content absolute inset-x-[clamp(18px,1.7vw,28px)] bottom-[clamp(22px,2.3vw,36px)] z-30 text-white">
