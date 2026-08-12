@@ -176,7 +176,7 @@ export default function Contact() {
             </label>
             <label className="contact-form-field">
               <span>Telepon</span>
-              <input name="phone" type="tel" value={form.phone} onChange={handleChange} autoComplete="tel" inputMode="tel" minLength="7" maxLength="32" pattern="[0-9+().\-\s]+" required />
+              <input name="phone" type="tel" value={form.phone} onChange={handleChange} autoComplete="tel" inputMode="tel" minLength="7" maxLength="32" required />
             </label>
             <label className="contact-form-field contact-form-field-wide">
               <span>Layanan</span>
