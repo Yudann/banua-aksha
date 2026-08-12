@@ -27,6 +27,6 @@ Options -Indexes
   AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml image/svg+xml
 </IfModule>
 
-<FilesMatch "^(?:composer\.(?:json|lock)|mail-config\.php)$">
+<FilesMatch "^mail-config\.php$">
   Require all denied
 </FilesMatch>
