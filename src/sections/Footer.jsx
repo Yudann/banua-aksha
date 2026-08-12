@@ -1,4 +1,4 @@
-import { ArrowUpRight, BriefcaseBusiness, Camera, Leaf, Mail, MapPin, Phone } from 'lucide-react'
+import { ArrowUpRight, Leaf, Mail, MapPin, Phone } from 'lucide-react'
 import { services } from '../data/services'
 import { useInView } from '../hooks/useInView'
 
@@ -50,9 +50,7 @@ export default function Footer() {
                 <span>Konsultasikan Proyek</span><ArrowUpRight aria-hidden="true" />
               </a>
 
-              <div className="footer-card-socials" aria-label="Media sosial Banua Aksha">
-                <span title="LinkedIn — tautan belum tersedia"><BriefcaseBusiness aria-hidden="true" /></span>
-                <span title="Instagram — tautan belum tersedia"><Camera aria-hidden="true" /></span>
+              <div className="footer-card-socials" aria-label="Kontak email Banua Aksha">
                 <a href="mailto:contact@petebaik.com" aria-label="Kirim email"><Mail aria-hidden="true" /></a>
               </div>
             </div>

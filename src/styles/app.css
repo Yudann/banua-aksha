@@ -3807,7 +3807,6 @@ html.contact-success-open body {
   margin-top: 24px;
 }
 
-.footer-card-socials > span,
 .footer-card-socials > a {
   display: grid;
   width: 34px;
@@ -3816,10 +3815,6 @@ html.contact-success-open body {
   border: 1px solid rgba(244, 242, 233, .5);
   border-radius: 50%;
   color: rgba(244, 242, 233, .84);
-}
-
-.footer-card-socials > span {
-  opacity: .66;
 }
 
 .footer-card-socials svg {
