@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
+use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, max-age=0');
@@ -59,20 +61,28 @@ function load_private_config(): array
     return [];
 }
 
-function load_phpmailer(array $config): bool
+function load_phpmailer(): bool
 {
-    $documentRoot = rtrim((string) ($_SERVER['DOCUMENT_ROOT'] ?? ''), DIRECTORY_SEPARATOR);
-    $candidates = array_filter([
-        isset($config['vendor_autoload']) && is_string($config['vendor_autoload']) ? $config['vendor_autoload'] : '',
-        $documentRoot !== '' ? dirname($documentRoot) . '/private/vendor/autoload.php' : '',
-        dirname(__DIR__, 2) . '/server/vendor/autoload.php',
-    ]);
+    $projectRoot = dirname(__DIR__, 2);
+    $candidates = [
+        $projectRoot . '/private/phpmailer/src',
+        $projectRoot . '/server/phpmailer/src',
+    ];
 
-    foreach ($candidates as $path) {
-        if (is_file($path) && is_readable($path)) {
-            require_once $path;
-            return class_exists(PHPMailer::class);
-        }
+    foreach ($candidates as $sourceDirectory) {
+        $exceptionFile = $sourceDirectory . '/Exception.php';
+        $mailerFile = $sourceDirectory . '/PHPMailer.php';
+        $smtpFile = $sourceDirectory . '/SMTP.php';
+
+        if (!is_readable($exceptionFile) || !is_readable($mailerFile) || !is_readable($smtpFile)) continue;
+
+        require_once $exceptionFile;
+        require_once $mailerFile;
+        require_once $smtpFile;
+
+        return class_exists(Exception::class)
+            && class_exists(PHPMailer::class)
+            && class_exists(SMTP::class);
     }
 
     return false;
@@ -224,6 +234,7 @@ $allowedServices = [
     'Persetujuan Lingkungan Hidup',
     'Pemanfaatan dan Pengolahan LB3',
     'Sertifikat Laik Operasi (SLO)',
+    'Peralatan Laboratorium Lingkungan',
     'Lainnya',
 ];
 
@@ -244,8 +255,8 @@ if (!$valid) {
     respond(422, false, 'Mohon periksa kembali data yang diisi.');
 }
 
-if (!load_phpmailer($config)) {
-    error_log('PHPMailer autoload file is unavailable for the BAI contact endpoint.');
+if (!load_phpmailer()) {
+    error_log('PHPMailer source files are unavailable for the BAI contact endpoint.');
     respond(500, false, 'Layanan formulir sedang belum tersedia. Silakan coba lagi nanti.');
 }
 
