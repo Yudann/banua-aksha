@@ -79,23 +79,34 @@ export default function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    if (!form.name.trim() || !form.company.trim() || !form.email.trim() || !form.phone.trim() || !form.service || !form.message.trim()) {
+    if (status === 'submitting') return
+
+    const isKnownService = services.some(({ title }) => title === form.service)
+    const validPhone = /^[0-9+().\-\s]{7,32}$/.test(form.phone.trim())
+    if (
+      form.name.trim().length < 2
+      || form.company.trim().length < 2
+      || !event.currentTarget.checkValidity()
+      || !validPhone
+      || !isKnownService
+      || form.message.trim().length < 10
+    ) {
       setStatus('error')
-      setMessage('Mohon lengkapi seluruh data sebelum mengirim permintaan.')
+      setMessage('Mohon periksa kembali seluruh data sebelum mengirim permintaan.')
       return
     }
     setStatus('submitting')
     setMessage('')
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/contact.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
       const result = await response.json().catch(() => ({}))
 
-      if (!response.ok) throw new Error(result.message || 'Pesan belum dapat dikirim. Silakan coba lagi.')
+      if (!response.ok || result.success !== true) throw new Error(result.message || 'Pesan belum dapat dikirim. Silakan coba lagi.')
 
       const name = form.name
       setForm(initialForm)
@@ -149,23 +160,23 @@ export default function Contact() {
         </h2>
         <p className="contact-closing-intro">Ceritakan kebutuhan perusahaan Anda, dan tim Banua akan membantu menentukan langkah pendampingan yang sesuai.</p>
 
-        <form className="contact-form" data-state={status} onSubmit={handleSubmit}>
+        <form className="contact-form" data-state={status} aria-busy={status === 'submitting'} onSubmit={handleSubmit}>
           <div className="contact-form-fields">
             <label className="contact-form-field">
               <span>Nama Lengkap</span>
-              <input name="name" value={form.name} onChange={handleChange} autoComplete="name" required />
+              <input name="name" value={form.name} onChange={handleChange} autoComplete="name" minLength="2" maxLength="120" required />
             </label>
             <label className="contact-form-field">
               <span>Nama Perusahaan</span>
-              <input name="company" value={form.company} onChange={handleChange} autoComplete="organization" required />
+              <input name="company" value={form.company} onChange={handleChange} autoComplete="organization" minLength="2" maxLength="160" required />
             </label>
             <label className="contact-form-field">
               <span>Email</span>
-              <input name="email" type="email" value={form.email} onChange={handleChange} autoComplete="email" required />
+              <input name="email" type="email" value={form.email} onChange={handleChange} autoComplete="email" maxLength="254" required />
             </label>
             <label className="contact-form-field">
               <span>Telepon</span>
-              <input name="phone" type="tel" value={form.phone} onChange={handleChange} autoComplete="tel" required />
+              <input name="phone" type="tel" value={form.phone} onChange={handleChange} autoComplete="tel" inputMode="tel" minLength="7" maxLength="32" pattern="[0-9+().\-\s]+" required />
             </label>
             <label className="contact-form-field contact-form-field-wide">
               <span>Layanan</span>
@@ -210,7 +221,7 @@ export default function Contact() {
             </label>
             <label className="contact-form-field contact-form-field-wide">
               <span>Pesan</span>
-              <textarea name="message" value={form.message} onChange={handleChange} rows="4" required />
+              <textarea name="message" value={form.message} onChange={handleChange} rows="4" minLength="10" maxLength="4000" required />
             </label>
             <label className="contact-form-trap" aria-hidden="true">
               <span>Website</span>
@@ -219,7 +230,7 @@ export default function Contact() {
           </div>
 
           <div className="contact-form-submit-row">
-            <button className="contact-form-submit" type="submit" disabled={status === 'submitting'}>
+            <button className="contact-form-submit" type="submit" disabled={status === 'submitting'} aria-disabled={status === 'submitting'}>
               <span>{status === 'submitting' ? 'Mengirim pesan' : 'Kirim permintaan'}</span>
               {status === 'submitting' ? <LoaderCircle aria-hidden="true" /> : <Send aria-hidden="true" />}
             </button>
